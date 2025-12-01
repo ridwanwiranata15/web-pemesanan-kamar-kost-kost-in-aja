@@ -1,409 +1,552 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="style.css" rel="stylesheet">
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            'tedja-black': '#0A0A0A',
-                            'tedja-border': '#EAEAEA',
-                            'tedja-blue': '#2B82FE',
-                            'tedja-secondary': '#A0A0A0',
-                            'tedja-green': '#31B380',
-                        }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tedja-black': '#0A0A0A',
+                        'tedja-border': '#EAEAEA',
+                        'tedja-blue': '#2B82FE',
+                        'tedja-secondary': '#A0A0A0',
+                        'tedja-green': '#31B380',
                     }
                 }
             }
-        </script>
-        <style>
-            @keyframes slideUp {
-                0% { transform: translateY(0); }
-                100% { transform: translateY(-50%); }
+        }
+    </script>
+    <style>
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0);
             }
-            @keyframes slideDown {
-                0% { transform: translateY(-50%); }
-                100% { transform: translateY(0); }
+
+            100% {
+                transform: translateY(-50%);
             }
-            .slide-up .content { animation: slideUp 30s linear infinite; }
-            .slide-down .content { animation: slideDown 30s linear infinite; }
-        </style>
-    </head>
-    <body class="pb-[100px] md:pb-0"> <nav class="relative w-full flex items-center justify-center px-4 md:px-[75px]">
-            <div class="fixed top-0 flex items-center justify-between w-full max-w-[1130px] rounded-3xl p-4 bg-white mt-[20px] md:mt-[30px] z-30 shadow-sm md:shadow-none">
-                <a href="index.html" class="flex shrink-0">
-                    <img src="logo-black.svg" alt="logo" class="h-8 md:h-auto">
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-50%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .slide-up .content {
+            animation: slideUp 30s linear infinite;
+        }
+
+        .slide-down .content {
+            animation: slideDown 30s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="pb-[100px] md:pb-0">
+    <nav class="relative w-full flex items-center justify-center px-4 md:px-[75px]">
+        <div
+            class="fixed top-0 flex items-center justify-between w-full max-w-[1130px] rounded-3xl p-4 bg-white mt-[20px] md:mt-[30px] z-30 shadow-sm md:shadow-none">
+            <a href="index.html" class="flex shrink-0">
+                <img src="logo-black.svg" alt="logo" class="h-8 md:h-auto">
+            </a>
+
+            <ul class="hidden md:flex items-center gap-[30px]">
+                <li class="group active">
+                    <a href="index.html"
+                        class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Home</a>
+                </li>
+                <li class="group">
+                    <a href="category.html"
+                        class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Browse</a>
+                </li>
+                <li class="group">
+                    <a href="#"
+                        class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Testimonials</a>
+                </li>
+            </ul>
+
+            <div class="hidden md:flex items-center gap-3">
+                <a href="signin.html"
+                    class="group rounded-full border border-tedja-black py-[14px] px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
+                    <span class="font-semibold group-hover:text-white transition-all duration-300">Sign In</span>
                 </a>
-                
-                <ul class="hidden md:flex items-center gap-[30px]">
-                    <li class="group active">
-                        <a href="index.html" class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Home</a>
-                    </li>
-                    <li class="group">
-                        <a href="category.html" class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Browse</a>
-                    </li>
-                    <li class="group">
-                        <a href="#" class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Rewards</a>
-                    </li>
-                    <li class="group">
-                        <a href="#" class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Stories</a>
-                    </li>
-                </ul>
-
-                <div class="hidden md:flex items-center gap-3">
-                    <a href="signin.html" class="group rounded-full border border-tedja-black py-[14px] px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
-                        <span class="font-semibold group-hover:text-white transition-all duration-300">Sign In</span>
-                    </a>
-                    <a href="signup.html" class="group rounded-full border py-[14px] px-5 flex items-center bg-tedja-green text-white">
-                        <span class="font-semibold">Sign Up</span>
-                    </a>
-                </div>
-
-                </div>
-        </nav>
-
-        <header class="relative flex flex-col w-full min-h-[600px] ">
-            <div class="absolute w-full h-full overflow-hidden">
-                <img src="hero-image.webp" class="w-full h-full object-cover" alt="hero image">
-                <div class="absolute w-full h-full bg-tedja-black/10"></div>
+                <a href="signup.html"
+                    class="group rounded-full border py-[14px] px-5 flex items-center bg-tedja-green text-white">
+                    <span class="font-semibold">Sign Up</span>
+                </a>
             </div>
-            <div class="relative flex flex-col mt-[150px] md:mt-[244px] gap-5 items-center px-4">
-                <h1 class="font-extrabold text-4xl md:text-[46px] leading-tight md:leading-[60px] text-center text-white">You Deserve Big House</h1>
-                
+
+        </div>
+    </nav>
+
+    <header class="relative flex flex-col w-full min-h-[400px] ">
+        <div class="absolute w-full h-full overflow-hidden">
+            <img src="hero-image.webp" class="w-full h-full object-cover" alt="hero image">
+            <div class="absolute w-full h-full bg-tedja-black/10"></div>
+        </div>
+        <div class="relative flex flex-col mt-[150px] md:mt-[244px] gap-5 items-center px-4">
+            <h1 class="font-extrabold text-4xl md:text-[46px] leading-tight md:leading-[60px] text-center text-white">
+                You Deserve Big House</h1>
+
+        </div>
+    </header>
+
+    <section id="Popular-Categories" class="flex flex-col w-full mt-[30px] md:mt-[50px] gap-[30px]">
+        <div class="flex flex-col w-full max-w-[1280px] px-4 md:px-[75px] mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex flex-col gap-1">
+                    <h2 class="font-bold text-[22px] md:text-[26px]">Kamar yang tersedia</h2>
+                    <p class="text-sm md:text-base text-gray-500">Temukan kamar sesuai kebutuhanmu</p>
+                </div>
+                <a href="#"
+                    class="group rounded-full border border-tedja-black py-[12px] px-4 md:py-[14px] md:px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
+                    <span
+                        class="font-semibold group-hover:text-white transition-all duration-300 text-sm md:text-base">Explore
+                        All</span>
+                </a>
             </div>
-        </header>
-
-        <section id="Popular-Categories" class="flex flex-col w-full mt-[50px] md:mt-[10px] gap-[30px]">
-            <div class="flex flex-col w-full max-w-[1280px] px-4 md:px-[75px] mx-auto">
-                <div class="flex items-center justify-between">
-                    <div class="flex flex-col">
-                        <h2 class="font-bold text-[22px] md:text-[26px] ">Kamar yang tersedia</h2>
-                        <p class="text-sm md:text-base">Temukan kamar sesuai kebutuhanmu</p>
-                    </div>
-                    <a href="#" class="group rounded-full border border-tedja-black py-[12px] px-4 md:py-[14px] md:px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
-                        <span class="font-semibold group-hover:text-white transition-all duration-300 text-sm md:text-base">Explore All</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="swiper w-full overflow-x-hidden">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide !w-fit py-0.5 pl-4 md:first-of-type:pl-[calc(((100%-1280px)/2)+75px)] md:last-of-type:pr-[calc(((100%-1280px)/2)+75px)]">
-                        <a href="category.html" class="card">
-                            <div class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue transition-all duration-300">
-                                <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
-                                    <img src="thumbnails-1.png" class="w-full h-full object-cover" alt="thumbnails">
-                                </div>
-                                <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
-                                    <h3 class="font-bold text-lg">Beaches</h3>
-                                    <div class="flex items-center gap-[6px]">
-                                        <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
-                                        <p class="font-semibold text-sm">183,498 Houses</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide !w-fit py-0.5">
-                        <a href="category.html" class="card">
-                            <div class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue transition-all duration-300">
-                                <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
-                                    <img src="thumbnails-2.png" class="w-full h-full object-cover" alt="thumbnails">
-                                </div>
-                                <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
-                                    <h3 class="font-bold text-lg">Jungle</h3>
-                                    <div class="flex items-center gap-[6px]">
-                                        <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
-                                        <p class="font-semibold text-sm">22,408 Houses</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide !w-fit py-0.5">
-                        <a href="category.html" class="card">
-                            <div class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue transition-all duration-300">
-                                <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
-                                    <img src="thumbnails-3.png" class="w-full h-full object-cover" alt="thumbnails">
-                                </div>
-                                <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
-                                    <h3 class="font-bold text-lg">Snow</h3>
-                                    <div class="flex items-center gap-[6px]">
-                                        <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
-                                        <p class="font-semibold text-sm">812 Houses</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide !w-fit py-0.5 pr-4 md:last-of-type:pr-[calc(((100%-1280px)/2)+75px)]">
-                        <a href="category.html" class="card">
-                            <div class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue transition-all duration-300">
-                                <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
-                                    <img src="thumbnails-4.png" class="w-full h-full object-cover" alt="thumbnails">
-                                </div>
-                                <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
-                                    <h3 class="font-bold text-lg">City</h3>
-                                    <div class="flex items-center gap-[6px]">
-                                        <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
-                                        <p class="font-semibold text-sm">183,498 Houses</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Testimonials" class="flex flex-col w-full max-w-[1280px] px-4 md:px-[135px] gap-[31px] mx-auto my-[50px] md:my-[70px]">
-            <div class="flex flex-col gap-1 text-center">
-                <h2 class="font-bold text-[22px] md:text-[26px] leading-10">Happy Families</h2>
-                <p class="text-sm md:text-base">Kami hadir membuatmu bahagia</p>
-            </div>
-            
-            <div id="Slider-Container" class="relative flex justify-center gap-[20px] md:gap-[30px] w-full md:w-[1010px] h-[500px] md:h-[650px] shrink-0 overflow-hidden mx-auto">
-                <div class="gradient absolute z-10 top-0 w-full h-[100px] md:h-[186px] bg-[linear-gradient(180deg,rgba(250,250,250,0)_0%,#FAFAFA_100%)] rotate-180"></div>
-                <div class="gradient absolute z-10 bottom-0 w-full h-[100px] bg-[linear-gradient(180deg,rgba(250,250,250,0)_0%,#FAFAFA_100%)]"></div>
-                
-                <div class="slider slide-up w-[280px] md:w-[230px] h-max flex flex-col flex-nowrap shrink-0">
-                    <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pt-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <div class="flex">
-                                    <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star">
-                                </div>
-                                <p class="font-semibold leading-[28px]">Awalnya takut dibawa kabur duitnya lalu dolor dicoba kok malah amet lorem</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Sarina Dwi</p>
-                                        <p class="text-sm text-tedja-secondary">House Designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <div class="flex">
-                                    <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star">
-                                </div>
-                                <p class="font-semibold leading-[28px]">Pelayanan sangat ramah dan proses cepat sekali</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-2.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Budi Santoso</p>
-                                        <p class="text-sm text-tedja-secondary">Entrepreneur</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pt-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <div class="flex">
-                                    <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star">
-                                </div>
-                                <p class="font-semibold leading-[28px]">Awalnya takut dibawa kabur duitnya lalu dolor dicoba kok malah amet lorem</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Sarina Dwi</p>
-                                        <p class="text-sm text-tedja-secondary">House Designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <div class="flex">
-                                    <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star">
-                                </div>
-                                <p class="font-semibold leading-[28px]">Pelayanan sangat ramah dan proses cepat sekali</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-2.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Budi Santoso</p>
-                                        <p class="text-sm text-tedja-secondary">Entrepreneur</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider slide-down hidden md:flex w-[230px] h-max flex-col flex-nowrap shrink-0">
-                    <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pb-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Rumah impian jadi kenyataan berkat Tedja</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-3.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Andi Wijaya</p>
-                                        <p class="text-sm text-tedja-secondary">Architect</p>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Sangat membantu mencari lokasi strategis</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-4.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Siti Aminah</p>
-                                        <p class="text-sm text-tedja-secondary">Doctor</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pb-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Rumah impian jadi kenyataan berkat Tedja</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-3.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Andi Wijaya</p>
-                                        <p class="text-sm text-tedja-secondary">Architect</p>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Sangat membantu mencari lokasi strategis</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-4.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Siti Aminah</p>
-                                        <p class="text-sm text-tedja-secondary">Doctor</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider slide-up hidden lg:flex w-[230px] h-max flex-col flex-nowrap shrink-0">
-                     <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pt-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Investasi properti terbaik tahun ini</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-5.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Rina Nose</p>
-                                        <p class="text-sm text-tedja-secondary">Investor</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pt-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Investasi properti terbaik tahun ini</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile-5.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Rina Nose</p>
-                                        <p class="text-sm text-tedja-secondary">Investor</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="slider slide-down hidden lg:flex w-[230px] h-max flex-col flex-nowrap shrink-0">
-                     <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pb-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Harga terjangkau kualitas mewah</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Joko Anwar</p>
-                                        <p class="text-sm text-tedja-secondary">Director</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="h-max">
-                        <div class="content flex flex-col gap-[30px] pb-[30px]">
-                            <div class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
-                                <p class="font-semibold leading-[28px]">Harga terjangkau kualitas mewah</p>
-                                <div class="flex items-center gap-[14px]">
-                                    <div class="flex size-[60px] rounded-full overflow-hidden">
-                                        <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Joko Anwar</p>
-                                        <p class="text-sm text-tedja-secondary">Director</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="fixed bottom-0 left-0 w-full bg-white z-50 border-t border-tedja-border px-6 py-4 flex justify-between items-center md:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-            <a href="index.html" class="flex flex-col items-center gap-1 text-tedja-black group active">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 group-[.active]:text-tedja-black text-gray-300">
-                    <path d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.632 8.632a.75.75 0 0 1-1.06 1.061l-.312-.312v6.28a2.25 2.25 0 0 1-2.25 2.25H13.5a.75.75 0 0 1-.75-.75V15a.75.75 0 0 0-.75-.75h-2.25a.75.75 0 0 0-.75.75v5.534a.75.75 0 0 1-.75.75H6.75A2.25 2.25 0 0 1 4.5 19.5V13.22l-.312.312a.75.75 0 0 1-1.06-1.06l8.632-8.632Z" />
-                </svg>
-                <span class="text-[10px] font-bold group-[.active]:text-tedja-black text-gray-400">Home</span>
-            </a>
-            <a href="category.html" class="flex flex-col items-center gap-1 text-gray-400 hover:text-tedja-black transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                    <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-[10px] font-medium">Browse</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-tedja-black transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                    <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-[10px] font-medium">Rewards</span>
-            </a>
-            <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-tedja-black transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                    <path fill-rule="evenodd" d="M4.125 3C3.089 3 2.25 3.84 2.25 4.875V18a3 3 0 0 0 3 3h15a3 3 0 0 1-3-3V4.875C17.25 3.839 16.41 3 15.375 3H4.125ZM12 9.75a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H12Zm-.75-2.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75ZM6 12.75a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5H6Zm-.75 3.75a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75ZM6 6.75a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75v-3A.75.75 0 0 0 9 6.75H6Z" clip-rule="evenodd" />
-                    <path d="M18.75 6.75h1.875c.621 0 1.125.504 1.125 1.125V18a1.5 1.5 0 0 1-3 0V6.75Z" />
-                </svg>
-                <span class="text-[10px] font-medium">Stories</span>
-            </a>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="index.js"></script>
-    </body>
+        <div class="swiper w-full overflow-x-hidden !py-8">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide !w-fit pl-4 md:first-of-type:pl-[calc(((100%-1280px)/2)+75px)] md:last-of-type:pr-[calc(((100%-1280px)/2)+75px)] cursor-pointer"
+                    id="triggerBtn">
+                    <div
+                        class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue hover:shadow-xl hover:-translate-y-2 transition-all duration-300 card-group">
+                        <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
+                            <img src="thumbnails-1.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                                alt="thumbnails">
+                        </div>
+                        <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
+                            <h3 class="font-bold text-lg">Assalamualaikum</h3>
+                            <div class="flex items-center gap-[6px]">
+                                <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
+                                <p class="font-semibold text-sm text-gray-500">183,498 Houses</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div
+                    class="swiper-slide !w-fit pl-4 md:first-of-type:pl-[calc(((100%-1280px)/2)+75px)] md:last-of-type:pr-[calc(((100%-1280px)/2)+75px)] cursor-pointer">
+                    <div
+                        class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue hover:shadow-xl hover:-translate-y-2 transition-all duration-300 card-group">
+                        <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
+                            <img src="thumbnails-1.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                                alt="thumbnails">
+                        </div>
+                        <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
+                            <h3 class="font-bold text-lg">Beaches</h3>
+                            <div class="flex items-center gap-[6px]">
+                                <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
+                                <p class="font-semibold text-sm text-gray-500">183,498 Houses</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div
+                    class="swiper-slide !w-fit pl-4 md:first-of-type:pl-[calc(((100%-1280px)/2)+75px)] md:last-of-type:pr-[calc(((100%-1280px)/2)+75px)] cursor-pointer">
+                    <div
+                        class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue hover:shadow-xl hover:-translate-y-2 transition-all duration-300 card-group">
+                        <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
+                            <img src="thumbnails-1.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                                alt="thumbnails">
+                        </div>
+                        <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
+                            <h3 class="font-bold text-lg">Beaches</h3>
+                            <div class="flex items-center gap-[6px]">
+                                <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
+                                <p class="font-semibold text-sm text-gray-500">183,498 Houses</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div
+                    class="swiper-slide !w-fit pl-4 md:first-of-type:pl-[calc(((100%-1280px)/2)+75px)] md:last-of-type:pr-[calc(((100%-1280px)/2)+75px)] cursor-pointer">
+                    <div
+                        class="flex flex-col w-[200px] md:w-[240px] shrink-0 rounded-[30px] ring-1 ring-tedja-border bg-white p-[10px] gap-4 hover:ring-2 hover:ring-tedja-blue hover:shadow-xl hover:-translate-y-2 transition-all duration-300 card-group">
+                        <div class="flex w-full h-[200px] md:h-[240px] overflow-hidden rounded-[30px]">
+                            <img src="thumbnails-1.png"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                                alt="thumbnails">
+                        </div>
+                        <div class="flex flex-col gap-2 pb-[10px] pl-[10px]">
+                            <h3 class="font-bold text-lg">Beaches</h3>
+                            <div class="flex items-center gap-[6px]">
+                                <img src="house-2.svg" class="size-5 flex shrink-0" alt="icon">
+                                <p class="font-semibold text-sm text-gray-500">183,498 Houses</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <section id="Testimonials"
+        class="flex flex-col w-full max-w-[1280px] px-4 md:px-[135px] gap-[31px] mx-auto my-[50px] md:my-[70px]">
+        <div class="flex flex-col gap-1 text-center">
+            <h2 class="font-bold text-[22px] md:text-[26px] leading-10">Happy Families</h2>
+            <p class="text-sm md:text-base">Kami hadir membuatmu bahagia</p>
+        </div>
+
+        <div id="Slider-Container"
+            class="relative flex justify-center gap-[20px] md:gap-[30px] w-full md:w-[1010px] h-[500px] md:h-[650px] shrink-0 overflow-hidden mx-auto">
+            <div
+                class="gradient absolute z-10 top-0 w-full h-[100px] md:h-[186px] bg-[linear-gradient(180deg,rgba(250,250,250,0)_0%,#FAFAFA_100%)] rotate-180">
+            </div>
+            <div
+                class="gradient absolute z-10 bottom-0 w-full h-[100px] bg-[linear-gradient(180deg,rgba(250,250,250,0)_0%,#FAFAFA_100%)]">
+            </div>
+
+            <div class="slider slide-up w-[280px] md:w-[230px] h-max flex flex-col flex-nowrap shrink-0">
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pt-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <div class="flex">
+                                <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg"
+                                    class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0"
+                                    alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img
+                                    src="Star 1.svg" class="flex shrink-0" alt="star">
+                            </div>
+                            <p class="font-semibold leading-[28px]">Awalnya takut dibawa kabur duitnya lalu dolor dicoba
+                                kok malah amet lorem</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Sarina Dwi</p>
+                                    <p class="text-sm text-tedja-secondary">House Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <div class="flex">
+                                <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg"
+                                    class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0"
+                                    alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img
+                                    src="Star 1.svg" class="flex shrink-0" alt="star">
+                            </div>
+                            <p class="font-semibold leading-[28px]">Pelayanan sangat ramah dan proses cepat sekali</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-2.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Budi Santoso</p>
+                                    <p class="text-sm text-tedja-secondary">Entrepreneur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pt-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <div class="flex">
+                                <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg"
+                                    class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0"
+                                    alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img
+                                    src="Star 1.svg" class="flex shrink-0" alt="star">
+                            </div>
+                            <p class="font-semibold leading-[28px]">Awalnya takut dibawa kabur duitnya lalu dolor dicoba
+                                kok malah amet lorem</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Sarina Dwi</p>
+                                    <p class="text-sm text-tedja-secondary">House Designer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <div class="flex">
+                                <img src="Star 1.svg" class="flex shrink-0" alt="star"><img src="Star 1.svg"
+                                    class="flex shrink-0" alt="star"><img src="Star 1.svg" class="flex shrink-0"
+                                    alt="star"><img src="Star 1.svg" class="flex shrink-0" alt="star"><img
+                                    src="Star 1.svg" class="flex shrink-0" alt="star">
+                            </div>
+                            <p class="font-semibold leading-[28px]">Pelayanan sangat ramah dan proses cepat sekali</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[50px] md:size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-2.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Budi Santoso</p>
+                                    <p class="text-sm text-tedja-secondary">Entrepreneur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider slide-down hidden md:flex w-[230px] h-max flex-col flex-nowrap shrink-0">
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pb-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Rumah impian jadi kenyataan berkat Tedja</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-3.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Andi Wijaya</p>
+                                    <p class="text-sm text-tedja-secondary">Architect</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Sangat membantu mencari lokasi strategis</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-4.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Siti Aminah</p>
+                                    <p class="text-sm text-tedja-secondary">Doctor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pb-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Rumah impian jadi kenyataan berkat Tedja</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-3.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Andi Wijaya</p>
+                                    <p class="text-sm text-tedja-secondary">Architect</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Sangat membantu mencari lokasi strategis</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-4.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Siti Aminah</p>
+                                    <p class="text-sm text-tedja-secondary">Doctor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider slide-up hidden lg:flex w-[230px] h-max flex-col flex-nowrap shrink-0">
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pt-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Investasi properti terbaik tahun ini</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-5.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Rina Nose</p>
+                                    <p class="text-sm text-tedja-secondary">Investor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pt-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Investasi properti terbaik tahun ini</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile-5.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Rina Nose</p>
+                                    <p class="text-sm text-tedja-secondary">Investor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider slide-down hidden lg:flex w-[230px] h-max flex-col flex-nowrap shrink-0">
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pb-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Harga terjangkau kualitas mewah</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Joko Anwar</p>
+                                    <p class="text-sm text-tedja-secondary">Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-max">
+                    <div class="content flex flex-col gap-[30px] pb-[30px]">
+                        <div
+                            class="testimonial-card flex flex-col w-full rounded-[30px] border border-tedja-border bg-white p-4 gap-[14px]">
+                            <p class="font-semibold leading-[28px]">Harga terjangkau kualitas mewah</p>
+                            <div class="flex items-center gap-[14px]">
+                                <div class="flex size-[60px] rounded-full overflow-hidden">
+                                    <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
+                                </div>
+                                <div>
+                                    <p class="font-semibold">Joko Anwar</p>
+                                    <p class="text-sm text-tedja-secondary">Director</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div
+        class="fixed bottom-0 left-0 w-full bg-white z-50 border-t border-tedja-border px-6 py-4 flex justify-between items-center md:hidden shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <a href="index.html" class="flex flex-col items-center gap-1 text-tedja-black group active">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                class="size-6 group-[.active]:text-tedja-black text-gray-300">
+                <path
+                    d="M11.47 3.841a.75.75 0 0 1 1.06 0l8.632 8.632a.75.75 0 0 1-1.06 1.061l-.312-.312v6.28a2.25 2.25 0 0 1-2.25 2.25H13.5a.75.75 0 0 1-.75-.75V15a.75.75 0 0 0-.75-.75h-2.25a.75.75 0 0 0-.75.75v5.534a.75.75 0 0 1-.75.75H6.75A2.25 2.25 0 0 1 4.5 19.5V13.22l-.312.312a.75.75 0 0 1-1.06-1.06l8.632-8.632Z" />
+            </svg>
+            <span class="text-[10px] font-bold group-[.active]:text-tedja-black text-gray-400">Home</span>
+        </a>
+        <a href="category.html"
+            class="flex flex-col items-center gap-1 text-gray-400 hover:text-tedja-black transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd"
+                    d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+                    clip-rule="evenodd" />
+            </svg>
+            <span class="text-[10px] font-medium">Browse</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-tedja-black transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd"
+                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
+                    clip-rule="evenodd" />
+            </svg>
+            <span class="text-[10px] font-medium">Rewards</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-1 text-gray-400 hover:text-tedja-black transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path fill-rule="evenodd"
+                    d="M4.125 3C3.089 3 2.25 3.84 2.25 4.875V18a3 3 0 0 0 3 3h15a3 3 0 0 1-3-3V4.875C17.25 3.839 16.41 3 15.375 3H4.125ZM12 9.75a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H12Zm-.75-2.25a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5H12a.75.75 0 0 1-.75-.75ZM6 12.75a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5H6Zm-.75 3.75a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75ZM6 6.75a.75.75 0 0 0-.75.75v3c0 .414.336.75.75.75h3a.75.75 0 0 0 .75-.75v-3A.75.75 0 0 0 9 6.75H6Z"
+                    clip-rule="evenodd" />
+                <path d="M18.75 6.75h1.875c.621 0 1.125.504 1.125 1.125V18a1.5 1.5 0 0 1-3 0V6.75Z" />
+            </svg>
+            <span class="text-[10px] font-medium">Stories</span>
+        </a>
+    </div>
+
+    <div id="myModal" class="modal-overlay show-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Judul Modal</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body bg-white p-4 md:p-6 rounded-lg shadow-xl max-w-5xl w-full">
+                <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
+                    <div class="jumbo-image">
+                        <img src="thumbnails-1.png" alt="Gambar Utama" class="" width="450px">
+                    </div>
+                    <div class="thumbnails">
+                        <img src="thumbnails-2.png" alt="Thumbnail 1" class="mb-4 mr-4 cursor-pointer" width="118px">
+
+                        <img src="thumbnails-3.png" alt="Thumbnail 2" class="mb-4 mr-4 cursor-pointer" width="118px">
+
+                        <img src="thumbnails-4.png" alt="Thumbnail 3" class="mb-4 mr-4 cursor-pointer" width="118px">
+
+                        <img src="thumbnails-4.png" alt="Thumbnail 4" class="mb-4 mr-4 cursor-pointer" width="118px">
+                    </div>
+                </div>
+                <div class="deskripsi mt-5">
+                    <h1>Nama kamar</h1>
+                    <div class="fasilitas">
+                        <p>Fasilitas01</p>
+                        <p>Fasilitas02</p>
+                        <p>Fasilitas03</p>
+                        <p>Fasilitas04</p>
+                        <p>Fasilitas05</p>
+                    </div>
+                    <h1>pilih paket</h1>
+                    <div class="paket">
+                       <div class="list-packet ">
+                            <h1>Paket 3 bulan</h1>
+                            <input type="radio" name="paket" class="hidden" id="">
+                       </div>
+                       <div class="list-packet">
+                            <h1>Paket 6 bulan</h1>
+                            <input type="radio" name="paket" class="hidden" id="">
+                       </div>
+                       <div class="list-packet">
+                            <h1>Paket 1 tahun</h1>
+                            <input type="radio" name="paket" class="hidden" id="">
+                       </div>
+                    </div>
+                    <div class="mt-3">
+                        <h1 class="text-2xl">Rp.123.000 / bulan</h1>
+                    </div>
+                    <div class="mt-3">
+                        <button class="p-3" id="checkout">Pesan kamar</button>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
 </html>
