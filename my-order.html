@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <title>Tedjia | My Mortgages</title>
+</head>
+
+<body>
+    <div class="flex min-h-screen">
+        <aside class="h-screen min-w-[270px] overflow-y-auto bg-tedja-black text-white [&::-webkit-scrollbar]:hidden">
+            <div class="flex h-full w-full flex-col gap-[40px] pt-[40px]">
+                <div class="pl-[30px]">
+                    <a href="my-mortgages.html" class="shrink-0">
+                        <img src="logo-white.svg" alt="icon" />
+                    </a>
+                </div>
+                <nav class="flex flex-col gap-[40px] pb-[40px] pl-[30px]">
+                    <section id="General" class="flex flex-col gap-[24px]">
+                        <ul class="flex flex-col gap-[24px]">
+                            <li class="group">
+                                <a href="profile.html">
+                                    <div class="relative flex items-center gap-[6px]">
+                                        <img src="overview-n.svg" alt="icon"
+                                            class="shrink-0 group-[&.active]:hidden" />
+                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green">
+                                            Profile
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="active group">
+                                <a href="my-mortgages.html">
+                                    <div class="relative flex items-center gap-[6px]">
+                                        <img src="mortgages-y.svg" alt="icon"
+                                            class="hidden shrink-0 group-[&.active]:block" />
+                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green">
+                                            My order</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+        </aside>
+        <div class="h-screen w-full overflow-y-auto pt-[30px] px-[30px]">
+            <main class="flex w-full flex-col justify-center gap-[30px]  py-[28px]">
+                <header class="flex items-center justify-between">
+                    <div class="flex flex-col gap-[6px]">
+                        <h1 class="text-[26px] font-bold leading-[39px]">My Orders</h1>
+                    </div>
+                </header>
+                <section id="Cards" class="flex flex-col gap-[30px]">
+                    <div
+                        class="card flex items-center gap-[12px] pt-[10px] pb-5 bg-white border border-[#F2F2F4] px-[10px] rounded-[30px]">
+                        <div class="w-[150px] h-[168px] shrink-0 rounded-[30px] overflow-hidden flex justify-center items-center">
+                            <img src="thumbnails-1.png" alt="image" class="w-full h-full object-cover">
+                        </div>
+                        <div class="px-[10px] flex flex-col gap-[18px] w-full">
+                            <div class="title flex flex-col gap-[6px]">
+                                <h2 class="font-bold text-lg leading-[27px]">Anggana Parahyangan Golf</h2>
+                                <div class="flex items-center gap-[6px]">
+                                    <img src="location.svg" alt="icon" class="shrink-0 size-5">
+                                    <p class="font-semibold text-sm leading-[21px]">Melon, Bandung</p>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="buttons flex flex-col gap-[12px] shrink-0">
+                            
+                            <a href="my-mortgages-details-waiting.html">
+                                <div
+                                    class="font-semibold hover:text-[#FAFAFA] rounded-full py-[12px] w-[140px] bg-white border text-center border-tedja-black text-tedja-black hover:bg-tedja-black transition-all duration-300">
+                                    Details</div>
+                            </a>
+                        </div>
+                    </div>
+                
+                </section>
+
+            </main>
+        </div>
+    </div>
+    <script src="js/navbar-dropdown.js"></script>
+</body>
+
+</html>

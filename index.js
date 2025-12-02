@@ -71,3 +71,29 @@ packets.forEach((packet) => {
     })
 
 })
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Tunggu 5 detik sebelum memulai proses
+    setTimeout(function() {
+        var alertBox = document.getElementById('success-alert');
+        
+        if (alertBox) {
+            // 1. Ubah opacity jadi 0 (transparan)
+            alertBox.style.opacity = '0';
+
+            // 2. Tunggu transisi selesai (500ms sesuai class duration-500), baru hapus elemen
+            setTimeout(function() {
+                alertBox.remove(); // Hapus total dari DOM
+                // atau alertBox.style.display = 'none'; // Jika hanya ingin disembunyikan
+            }, 5000); 
+        }
+    }, 5000);
+});
+
+const sidebar = document.getElementById('sidebar-order')
+const toggle = document.getElementById('toggle-sidebar')
+
+toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active')
+})

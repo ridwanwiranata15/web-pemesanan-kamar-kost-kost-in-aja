@@ -57,51 +57,45 @@
 </head>
 
 <body class="pb-[100px] md:pb-0">
-    <nav class="relative w-full flex items-center justify-center px-4 md:px-[75px]">
-        <div
-            class="fixed top-0 flex items-center justify-between w-full max-w-[1130px] rounded-3xl p-4 bg-white mt-[20px] md:mt-[30px] z-30 shadow-sm md:shadow-none">
-            <a href="index.html" class="flex shrink-0">
-                <img src="logo-black.svg" alt="logo" class="h-8 md:h-auto">
+ <nav class="relative w-full flex items-center justify-center px-[75px]">
+    <div class="fixed top-0 flex items-center justify-between w-full max-w-[1130px] rounded-3xl p-4 bg-white mt-[20px] z-30 shadow-none">  
+        <a href="index.html" class="flex shrink-0">
+            <img src="logo-black.svg" alt="logo" class="h-auto">
+        </a>
+
+        <ul class="flex items-center gap-[30px]">
+            <li class="group active">
+                <a href="index.html"
+                    class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Home</a>
+            </li>
+            <li class="group">
+                <a href="category.html"
+                    class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Browse</a>
+            </li>
+            <li class="group">
+                <a href="#"
+                    class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Testimonials</a>
+            </li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+            <a href="signin.html"
+                class="group rounded-full border border-tedja-black py-[14px] px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
+                <span class="font-semibold group-hover:text-white transition-all duration-300">Sign In</span>
             </a>
-
-            <ul class="hidden md:flex items-center gap-[30px]">
-                <li class="group active">
-                    <a href="index.html"
-                        class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Home</a>
-                </li>
-                <li class="group">
-                    <a href="category.html"
-                        class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Browse</a>
-                </li>
-                <li class="group">
-                    <a href="#"
-                        class="hover:font-bold group-[.active]:font-bold transition-all duration-300">Testimonials</a>
-                </li>
-            </ul>
-
-            <div class="hidden md:flex items-center gap-3">
-                <a href="signin.html"
-                    class="group rounded-full border border-tedja-black py-[14px] px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
-                    <span class="font-semibold group-hover:text-white transition-all duration-300">Sign In</span>
-                </a>
-                <a href="signup.html"
-                    class="group rounded-full border py-[14px] px-5 flex items-center bg-tedja-green text-white">
-                    <span class="font-semibold">Sign Up</span>
-                </a>
-            </div>
-
+            <a href="signup.html"
+                class="group rounded-full border py-[14px] px-5 flex items-center bg-tedja-green text-white">
+                <span class="font-semibold">Sign Up</span>
+            </a>
         </div>
-    </nav>
+
+    </div>
+</nav>
 
     <header class="relative flex flex-col w-full min-h-[400px] ">
         <div class="absolute w-full h-full overflow-hidden">
             <img src="hero-image.webp" class="w-full h-full object-cover" alt="hero image">
             <div class="absolute w-full h-full bg-tedja-black/10"></div>
-        </div>
-        <div class="relative flex flex-col mt-[150px] md:mt-[244px] gap-5 items-center px-4">
-            <h1 class="font-extrabold text-4xl md:text-[46px] leading-tight md:leading-[60px] text-center text-white">
-                You Deserve Big House</h1>
-
         </div>
     </header>
 
@@ -109,13 +103,13 @@
         <div class="flex flex-col w-full max-w-[1280px] px-4 md:px-[75px] mx-auto">
             <div class="flex items-center justify-between">
                 <div class="flex flex-col gap-1">
-                   <div class="flex gap-1">
-                     <i class="fa-solid fa-bed mt-1 text-2xl mr-4"></i>
-                    <h2 class="font-bold text-[22px] md:text-[26px]">Kamar yang tersedia</h2>
-                   </div>
+                    <div class="flex gap-1">
+                        <i class="fa-solid fa-bed mt-1 text-2xl mr-4"></i>
+                        <h2 class="font-bold text-[22px] md:text-[26px]">Kamar yang tersedia</h2>
+                    </div>
                     <p class="text-sm md:text-base text-gray-500">Temukan kamar sesuai kebutuhanmu</p>
                 </div>
-                <a href="#"
+                <a href="rooms.html"
                     class="group rounded-full border border-tedja-black py-[12px] px-4 md:py-[14px] md:px-5 hover:bg-tedja-black flex items-center transition-all duration-300">
                     <span
                         class="font-semibold group-hover:text-white transition-all duration-300 text-sm md:text-base">Explore
@@ -494,71 +488,85 @@
     <div id="myModal" class="modal-overlay hide-modal">
         <div class="modal-content">
             <div class="modal-header">
-                
-                <h2>Judul Modal</h2>
+                <h2> <i class="fa-solid fa-bed text-4xl mr-4 mt-2"></i>Detail kamar</h2>
                 <span class="close-btn">&times;</span>
             </div>
             <div class="modal-body bg-white p-4 md:p-6 rounded-lg shadow-xl max-w-5xl w-full">
-                <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
-                    <div class="jumbo-image">
-                        <img src="thumbnails-1.png" alt="Gambar Utama" class="" width="450px">
+                <div class="">
+                    <div class="flex flex-col lg:flex-row gap-4 md:gap-6">
+                        <div class="jumbo-image">
+                            <img src="thumbnails-1.png" alt="Gambar Utama" class="" width="450px">
+                        </div>
+                        <div class="thumbnails">
+                            <img src="thumbnails-2.png" alt="Thumbnail 1" class="mb-4 mr-4 cursor-pointer"
+                                width="118px">
+
+                            <img src="thumbnails-3.png" alt="Thumbnail 2" class="mb-4 mr-4 cursor-pointer"
+                                width="118px">
+
+                            <img src="thumbnails-4.png" alt="Thumbnail 3" class="mb-4 mr-4 cursor-pointer"
+                                width="118px">
+
+                            <img src="thumbnails-4.png" alt="Thumbnail 4" class="mb-4 mr-4 cursor-pointer"
+                                width="118px">
+                        </div>
                     </div>
-                    <div class="thumbnails">
-                        <img src="thumbnails-2.png" alt="Thumbnail 1" class="mb-4 mr-4 cursor-pointer" width="118px">
-
-                        <img src="thumbnails-3.png" alt="Thumbnail 2" class="mb-4 mr-4 cursor-pointer" width="118px">
-
-                        <img src="thumbnails-4.png" alt="Thumbnail 3" class="mb-4 mr-4 cursor-pointer" width="118px">
-
-                        <img src="thumbnails-4.png" alt="Thumbnail 4" class="mb-4 mr-4 cursor-pointer" width="118px">
+                    <div class="deskripsi mt-5">
+                        <div class="flex">
+                            <i class="fa-solid fa-bed text-4xl mr-4"></i>
+                            <h1>Nama kamar</h1>
+                        </div>
+                        <div class="fasilitas">
+                            <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas01</p>
+                            <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas02</p>
+                            <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas03</p>
+                            <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas04</p>
+                            <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas05</p>
+                        </div>
+                        <h1>pilih paket</h1>
+                        <div class="paket">
+                            <div class="list-packet ">
+                                <div class="flex">
+                                    <i class="fa-solid fa-calendar mr-3 mt-1"></i>
+                                    <h1>Paket 3 bulan</h1>
+                                </div>
+                                <input type="radio" name="paket" class="hidden" id="">
+                            </div>
+                            <div class="list-packet">
+                                <div class="flex">
+                                    <i class="fa-solid fa-calendar mr-3 mt-1"></i>
+                                    <h1>Paket 6 bulan</h1>
+                                </div>
+                                <input type="radio" name="paket" class="hidden" id="">
+                            </div>
+                            <div class="list-packet">
+                                <div class="flex">
+                                    <i class="fa-solid fa-calendar mr-3 mt-1"></i>
+                                    <h1>Paket 1 tahun</h1>
+                                </div>
+                                <input type="radio" name="paket" class="hidden" id="">
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <h1 class="text-2xl"><i class="fa-solid fa-money-bill mr-4"></i>Rp.123.000 / bulan</h1>
+                        </div>
+                        <div class="mt-3">
+                            <button class="p-3" id="checkout"><i class="fa-solid fa-circle-check mr-3"></i> Pesan
+                                kamar</button>
+                        </div>
                     </div>
                 </div>
-                <div class="deskripsi mt-5">
-                    <div class="flex">
-                        <i class="fa-solid fa-bed text-4xl mr-4"></i>
-                    <h1>Nama kamar</h1>
+                <div class="text-center" id="warning">
+                    <div class="">
+                        <i class="fa-solid fa-triangle-exclamation" id="icn_warning"></i>
                     </div>
-                    <div class="fasilitas">
-                        <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas01</p>
-                        <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas02</p>
-                        <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas03</p>
-                        <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas04</p>
-                        <p><i class="fa-solid fa-circle-check mr-3"></i>Fasilitas05</p>
+                    <div class="">
+                        <h1>Akun anda belum terverifikasi, silahkan menunggu sesaat lagi</h1>
                     </div>
-                    <h1>pilih paket</h1>
-                    <div class="paket">
-                       <div class="list-packet ">
-                            <div class="flex">
-                                <i class="fa-solid fa-calendar mr-3 mt-1"></i>
-                                <h1>Paket 3 bulan</h1>
-                            </div>
-                            <input type="radio" name="paket" class="hidden" id="">
-                       </div>
-                       <div class="list-packet">
-                            <div class="flex">
-                                <i class="fa-solid fa-calendar mr-3 mt-1"></i>
-                                <h1>Paket 6 bulan</h1>
-                            </div>
-                            <input type="radio" name="paket" class="hidden" id="">
-                       </div>
-                       <div class="list-packet">
-                            <div class="flex">
-                                <i class="fa-solid fa-calendar mr-3 mt-1"></i>
-                                <h1>Paket 1 tahun</h1>
-                            </div>
-                            <input type="radio" name="paket" class="hidden" id="">
-                       </div>
-                    </div>
-                    <div class="mt-3">
-                        <h1 class="text-2xl"><i class="fa-solid fa-money-bill mr-4"></i>Rp.123.000 / bulan</h1>
-                    </div>
-                    <div class="mt-3">
-                        <button class="p-3" id="checkout"><i class="fa-solid fa-circle-check mr-3"></i> Pesan kamar</button>
-                    </div>
-                 </div>
+                </div>
+
             </div>
         </div>
-
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

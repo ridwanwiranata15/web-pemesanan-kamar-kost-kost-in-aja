@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <title>Tedjia | My Mortgages</title>
+</head>
+
+<body>
+    <div class="flex min-h-screen">
+        <aside class="min-h-screen min-w-[270px] overflow-y-auto bg-tedja-black text-white [&::-webkit-scrollbar]:hidden">
+            <div class="flex h-full w-full flex-col gap-[40px] pt-[40px]">
+                <div class="pl-[30px]">
+                    <a href="my-mortgages.html" class="shrink-0">
+                        <img src="logo-white.svg" alt="icon" />
+                    </a>
+                </div>
+                <nav class="flex flex-col gap-[40px] pb-[40px] pl-[30px]">
+                    <section id="General" class="flex flex-col gap-[24px]">
+                        <ul class="flex flex-col gap-[24px]">
+                            <li class="group">
+                                <a href="">
+                                    <div class="relative flex items-center gap-[6px]">
+                                        <img src="overview-n.svg" alt="icon" class="shrink-0 group-[&.active]:hidden" />
+                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green">
+                                            Profile
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="active group">
+                                <a href="my-order.html">
+                                    <div class="relative flex items-center gap-[6px]">
+                                        <img src="mortgages-y.svg" alt="icon"
+                                            class="hidden shrink-0 group-[&.active]:block" />
+                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green"
+                                            id="title-order">
+                                            My order</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+        </aside>
+        <div class="min-h-screen w-full overflow-y-auto pt-[30px] px-[30px]">
+            <main class="flex w-full flex-col justify-center gap-[30px]  py-[28px]">
+                <header class="flex items-center justify-between">
+                    <div class="flex flex-col gap-[6px]">
+                        <h1 class="text-[26px] font-bold leading-[39px]">My profile</h1>
+                    </div>
+                </header>
+                <div class="container">
+
+
+                    <div class="layout-grid">
+
+                        <div class="main-content">
+
+                            <div class="photo-section">
+                                <div class="avatar">
+                                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile">
+                                </div>
+                                <div class="photo-info">
+                                    <button class="btn btn-outline">Upload new photo</button>
+                                    <p>At least 800x800 px recommended.<br>JPG or PNG is allowed</p>
+                                </div>
+                            </div>
+
+                            <div class="section-block">
+                                <div class="section-header">
+                                    <span class="section-title">Personal Info</span>
+                                    <button class="btn btn-outline">Edit</button>
+                                </div>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Full Name</label>
+                                        <div>Ronald Richards</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Email</label>
+                                        <div>RonaldRich@example.com</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Phone</label>
+                                        <div>(219) 555-0114</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="section-block active">
+                                <div class="section-header">
+                                    <span class="section-title">Location</span>
+                                    <button class="btn btn-text">Cancel</button>
+                                </div>
+                                <div class="input-wrapper">
+                                    <div class="input-group">
+                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z">
+                                            </path>
+                                            <circle cx="12" cy="9" r="2.5"></circle>
+                                        </svg>
+                                        <input type="text" value="California" />
+                                    </div>
+                                    <button class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+
+                            <div class="section-block">
+                                <div class="section-header">
+                                    <span class="section-title">Bio</span>
+                                    <button class="btn btn-outline">Edit</button>
+                                </div>
+                                <p class="bio-text">
+                                    Hi 👋, I'm Ronald, a passionate UX designer with 10 years of experience in creating
+                                    intuitive and user-centered digital experiences. With a strong background in user
+                                    research, information architecture...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/navbar-dropdown.js"></script>
+</body>
+
+</html>
