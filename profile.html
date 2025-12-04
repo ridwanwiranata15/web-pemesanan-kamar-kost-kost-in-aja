@@ -4,133 +4,275 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
-    <title>Tedjia | My Mortgages</title>
+    <title>Tedjia | Profile</title>
+
+    <style>
+        /* =========================================
+                BASE STYLE
+        ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F9FD;
+            color: #030620;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .layout-wrapper {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* =========================================
+                SIDEBAR
+        ========================================= */
+        .sidebar {
+            width: 280px;
+            background-color: #02051E;
+            color: white;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-content {
+            padding: 40px 30px;
+        }
+
+        .logo-container {
+            margin-bottom: 40px;
+        }
+
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-item .nav-link {
+            color: #8C8F9E;
+            transition: 0.3s;
+        }
+
+        .nav-item.active .nav-link {
+            color: #D4F247;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* =========================================
+                MAIN WRAPPER
+        ========================================= */
+        .main-wrapper {
+            flex-grow: 1;
+            padding: 40px 50px;
+            background-color: #FBFCFE;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+        }
+
+        .content-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+                PROFILE SECTION
+        ========================================= */
+        .profile-card {
+            background: #fff;
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid #F1F1F1;
+            max-width: 500px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: #787A8C;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #02051E;
+        }
+
+        /* =========================================
+                RESPONSIVE
+        ========================================= */
+        @media screen and (max-width: 768px) {
+            .layout-wrapper {
+                display: block;
+            }
+
+            .sidebar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: auto;
+                padding: 0;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .logo-container {
+                display: none;
+            }
+
+            .sidebar-content {
+                padding: 15px 10px;
+            }
+
+            .nav-list {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .nav-text {
+                font-size: 11px;
+            }
+
+            .nav-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .main-wrapper {
+                padding: 20px 20px 100px 20px;
+            }
+
+            .profile-card {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="flex min-h-screen">
-        <aside class="min-h-screen min-w-[270px] overflow-y-auto bg-tedja-black text-white [&::-webkit-scrollbar]:hidden">
-            <div class="flex h-full w-full flex-col gap-[40px] pt-[40px]">
-                <div class="pl-[30px]">
-                    <a href="my-mortgages.html" class="shrink-0">
-                        <img src="logo-white.svg" alt="icon" />
+    <div class="layout-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="logo-container">
+                    <a href="profile.html">
+                        <img src="logo-white.svg" height="40" alt="Tedjia Logo" />
                     </a>
                 </div>
-                <nav class="flex flex-col gap-[40px] pb-[40px] pl-[30px]">
-                    <section id="General" class="flex flex-col gap-[24px]">
-                        <ul class="flex flex-col gap-[24px]">
-                            <li class="group">
-                                <a href="">
-                                    <div class="relative flex items-center gap-[6px]">
-                                        <img src="overview-n.svg" alt="icon" class="shrink-0 group-[&.active]:hidden" />
-                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green">
-                                            Profile
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="active group">
-                                <a href="my-order.html">
-                                    <div class="relative flex items-center gap-[6px]">
-                                        <img src="mortgages-y.svg" alt="icon"
-                                            class="hidden shrink-0 group-[&.active]:block" />
-                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green"
-                                            id="title-order">
-                                            My order</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </section>
-                </nav>
+
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="profile.html" class="nav-link">
+                            <div class="nav-content">
+                                <img src="overview-n.svg" class="nav-icon" />
+                                <p class="nav-text">Profile</p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="my-order.html" class="nav-link">
+                            <div class="nav-content">
+                                <img src="overview-n.svg" class="nav-icon" />
+                                <p class="nav-text">My order</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
             </div>
         </aside>
-        <div class="min-h-screen w-full overflow-y-auto pt-[30px] px-[30px]">
-            <main class="flex w-full flex-col justify-center gap-[30px]  py-[28px]">
-                <header class="flex items-center justify-between">
-                    <div class="flex flex-col gap-[6px]">
-                        <h1 class="text-[26px] font-bold leading-[39px]">My profile</h1>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-wrapper">
+            <header class="content-header">
+                <h1>My Profile</h1>
+            </header>
+
+            <section class="profile-section">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="https://i.pravatar.cc/300" class="profile-img" alt="Profile" />
+                        <h2 class="profile-name">Ridwan Wiranata</h2>
                     </div>
-                </header>
-                <div class="container">
 
-
-                    <div class="layout-grid">
-
-                        <div class="main-content">
-
-                            <div class="photo-section">
-                                <div class="avatar">
-                                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile">
-                                </div>
-                                <div class="photo-info">
-                                    <button class="btn btn-outline">Upload new photo</button>
-                                    <p>At least 800x800 px recommended.<br>JPG or PNG is allowed</p>
-                                </div>
-                            </div>
-
-                            <div class="section-block">
-                                <div class="section-header">
-                                    <span class="section-title">Personal Info</span>
-                                    <button class="btn btn-outline">Edit</button>
-                                </div>
-                                <div class="info-grid">
-                                    <div class="info-item">
-                                        <label>Full Name</label>
-                                        <div>Ronald Richards</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <label>Email</label>
-                                        <div>RonaldRich@example.com</div>
-                                    </div>
-                                    <div class="info-item">
-                                        <label>Phone</label>
-                                        <div>(219) 555-0114</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="section-block active">
-                                <div class="section-header">
-                                    <span class="section-title">Location</span>
-                                    <button class="btn btn-text">Cancel</button>
-                                </div>
-                                <div class="input-wrapper">
-                                    <div class="input-group">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2">
-                                            <path
-                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z">
-                                            </path>
-                                            <circle cx="12" cy="9" r="2.5"></circle>
-                                        </svg>
-                                        <input type="text" value="California" />
-                                    </div>
-                                    <button class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-
-                            <div class="section-block">
-                                <div class="section-header">
-                                    <span class="section-title">Bio</span>
-                                    <button class="btn btn-outline">Edit</button>
-                                </div>
-                                <p class="bio-text">
-                                    Hi 👋, I'm Ronald, a passionate UX designer with 10 years of experience in creating
-                                    intuitive and user-centered digital experiences. With a strong background in user
-                                    research, information architecture...
-                                </p>
-                            </div>
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <p class="info-label">Email</p>
+                            <p class="info-value">ridwan@example.com</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Phone</p>
+                            <p class="info-value">+62 812-3456-7890</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Location</p>
+                            <p class="info-value">Pontianak, Indonesia</p>
                         </div>
                     </div>
                 </div>
-            </main>
+            </section>
+
         </div>
     </div>
-    <script src="js/navbar-dropdown.js"></script>
 </body>
 
 </html>

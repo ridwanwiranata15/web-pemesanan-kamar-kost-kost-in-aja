@@ -4,42 +4,346 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="style.css" rel="stylesheet" />
+    <style>
+         /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F9FD;
+            /* Warna background abu-abu sangat muda */
+            color: #030620;
+            /* Warna text dasar gelap */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout System */
+        .layout-wrapper {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 280px;
+            background-color: #02051E;
+            /* Warna background sidebar biru gelap */
+            color: white;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-content {
+            padding: 40px 30px;
+        }
+
+        .logo-container {
+            margin-bottom: 50px;
+        }
+
+        .nav-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-link {
+            display: block;
+            color: #8C8F9E;
+            /* Warna text menu tidak aktif */
+            transition: 0.3s;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-text {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* Active State di Sidebar (Warna Hijau/Kuning Stabilo) */
+        .nav-item.active .nav-link {
+            color: #D4F247;
+        }
+
+        .nav-item.active .nav-icon {
+            /* Filter opsional jika iconnya svg tapi bukan path fill */
+            filter: brightness(0) saturate(100%) invert(86%) sepia(28%) saturate(927%) hue-rotate(24deg) brightness(102%) contrast(92%);
+        }
+
+        /* Main Content Area */
+        .main-wrapper {
+            flex-grow: 1;
+            padding: 40px 50px;
+            background-color: #FBFCFE;
+        }
+
+        /* Header */
+        .content-header {
+            margin-bottom: 30px;
+        }
+
+        .content-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #02051E;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Card Component (Penting untuk visual gambar) */
+        .order-card {
+            background-color: #FFFFFF;
+            border-radius: 24px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            /* Bayangan sangat halus */
+            border: 1px solid #F1F1F1;
+        }
+
+        /* Image Wrapper */
+        .card-image-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Card Details (Tengah) */
+        .card-details {
+            flex-grow: 1;
+            margin-left: 24px;
+        }
+
+        .card-text h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #02051E;
+            margin-bottom: 8px;
+        }
+
+        .card-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #02051E;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .location-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Button Action (Kanan) */
+        .card-action {
+            margin-right: 10px;
+        }
+
+        .btn-details {
+            display: inline-block;
+            padding: 12px 32px;
+            border: 1px solid #02051E;
+            border-radius: 50px;
+            /* Membuat bentuk pill/kapsul */
+            font-weight: 600;
+            font-size: 14px;
+            color: #02051E;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-details:hover {
+            background-color: #02051E;
+            color: #ffffff;
+        }
+        /* =========================================
+   RESPONSIVE STYLES (Mobile Bottom Nav)
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+    /* 1. Layout Wrapper */
+    .layout-wrapper {
+        display: block; /* Matikan flex row agar elemen menumpuk normal */
+    }
+
+    /* 2. Sidebar menjadi Bottom Navigation (Fixed di Bawah) */
+    .sidebar {
+        position: fixed; /* Kunci posisi di layar */
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        z-index: 1000; /* Pastikan selalu di atas konten lain */
+        padding: 0;
+        border-top-left-radius: 20px; /* Pemanis sudut atas */
+        border-top-right-radius: 20px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.1); /* Bayangan ke atas */
+    }
+
+    .sidebar-content {
+        padding: 15px 10px;
+        width: 100%;
+    }
+
+    /* Sembunyikan Logo karena tidak muat di menu bawah */
+    .logo-container {
+        display: none;
+    }
+
+    /* Atur List Menu agar berjejer ke samping */
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; /* Bagi jarak secara merata */
+        align-items: center;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav-item {
+        flex: 1; /* Tiap menu mengambil lebar yang sama */
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-link {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Ubah susunan Icon dan Text jadi Vertikal (Icon atas, Text bawah) */
+    .nav-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* Kecilkan teks menu agar pas di layar HP */
+    .nav-text {
+        display: block; /* Pastikan tampil */
+        font-size: 11px;
+        line-height: 1;
+    }
+    
+    /* Sesuaikan ukuran icon */
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* 3. Main Content Area */
+    .main-wrapper {
+        width: 100%;
+        /* Padding bawah DITAMBAH (misal 100px) supaya konten paling bawah 
+           tidak tertutup oleh menu navigasi yang melayang */
+        padding: 20px 20px 100px 20px; 
+    }
+
+    .content-header h1 {
+        font-size: 24px;
+    }
+
+    /* 4. Card Style di Mobile (Stack ke bawah) */
+    .order-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .card-image-wrapper {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 16px;
+        border-radius: 16px;
+    }
+
+    .card-details {
+        margin-left: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .card-action {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .btn-details {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 14px 0; /* Area sentuh lebih besar */
+    }
+}
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
     <title>Tedjia | My Mortgages</title>
+
 </head>
 
 <body>
-    <div class="flex min-h-screen">
-        <aside class="h-screen min-w-[270px] overflow-y-auto bg-tedja-black text-white [&::-webkit-scrollbar]:hidden">
-            <div class="flex h-full w-full flex-col gap-[40px] pt-[40px]">
-                <div class="pl-[30px]">
+    <div class="layout-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="logo-container">
                     <a href="my-mortgages.html" class="shrink-0">
-                        <img src="logo-white.svg" alt="icon" />
+                        <img src="logo-white.svg" alt="Tedjia Logo" height="40" />
                     </a>
                 </div>
-                <nav class="flex flex-col gap-[40px] pb-[40px] pl-[30px]">
-                    <section id="General" class="flex flex-col gap-[24px]">
-                        <ul class="flex flex-col gap-[24px]">
-                            <li class="group">
-                                <a href="profile.html">
-                                    <div class="relative flex items-center gap-[6px]">
-                                        <img src="overview-n.svg" alt="icon"
-                                            class="shrink-0 group-[&.active]:hidden" />
-                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green">
-                                            Profile
-                                        </p>
+                <nav class="sidebar-nav">
+                    <section id="General">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="profile.html" class="nav-link">
+                                    <div class="nav-content">
+                                        <img src="overview-n.svg" alt="icon" class="nav-icon" />
+                                        <p class="nav-text">Profile</p>
                                     </div>
                                 </a>
                             </li>
-                            <li class="active group">
-                                <a href="my-mortgages.html">
-                                    <div class="relative flex items-center gap-[6px]">
-                                        <img src="mortgages-y.svg" alt="icon"
-                                            class="hidden shrink-0 group-[&.active]:block" />
-                                        <p class="group-[&.active]:font-semibold group-[&.active]:text-tedja-green">
-                                            My order</p>
+                            <li class="nav-item active">
+                                <a href="my-order.html" class="nav-link">
+                                    <div class="nav-content">
+                                        <img src="mortgages-y.svg" alt="icon" class="nav-icon" />
+                                        <p class="nav-text">My order</p>
                                     </div>
                                 </a>
                             </li>
@@ -48,41 +352,35 @@
                 </nav>
             </div>
         </aside>
-        <div class="h-screen w-full overflow-y-auto pt-[30px] px-[30px]">
-            <main class="flex w-full flex-col justify-center gap-[30px]  py-[28px]">
-                <header class="flex items-center justify-between">
-                    <div class="flex flex-col gap-[6px]">
-                        <h1 class="text-[26px] font-bold leading-[39px]">My Orders</h1>
+
+        <div class="main-wrapper">
+            <main class="content-area">
+                <header class="content-header">
+                    <div class="header-title">
+                        <h1>My Orders</h1>
                     </div>
                 </header>
-                <section id="Cards" class="flex flex-col gap-[30px]">
-                    <div
-                        class="card flex items-center gap-[12px] pt-[10px] pb-5 bg-white border border-[#F2F2F4] px-[10px] rounded-[30px]">
-                        <div class="w-[150px] h-[168px] shrink-0 rounded-[30px] overflow-hidden flex justify-center items-center">
-                            <img src="thumbnails-1.png" alt="image" class="w-full h-full object-cover">
+
+                <section id="Cards" class="cards-section">
+                    <div class="order-card">
+                        <div class="card-image-wrapper">
+                            <img src="thumbnails-1.png" alt="Anggana Parahyangan Golf" class="card-img">
                         </div>
-                        <div class="px-[10px] flex flex-col gap-[18px] w-full">
-                            <div class="title flex flex-col gap-[6px]">
-                                <h2 class="font-bold text-lg leading-[27px]">Anggana Parahyangan Golf</h2>
-                                <div class="flex items-center gap-[6px]">
-                                    <img src="location.svg" alt="icon" class="shrink-0 size-5">
-                                    <p class="font-semibold text-sm leading-[21px]">Melon, Bandung</p>
+                        <div class="card-details">
+                            <div class="card-text">
+                                <h2>Anggana Parahyangan Golf</h2>
+                                <div class="card-location">
+                                    <p>Rp 500.000</p>
                                 </div>
                             </div>
-                           
                         </div>
-                        <div class="buttons flex flex-col gap-[12px] shrink-0">
-                            
-                            <a href="my-mortgages-details-waiting.html">
-                                <div
-                                    class="font-semibold hover:text-[#FAFAFA] rounded-full py-[12px] w-[140px] bg-white border text-center border-tedja-black text-tedja-black hover:bg-tedja-black transition-all duration-300">
-                                    Details</div>
+                        <div class="card-action">
+                            <a href="detail-order.html" class="btn-details">
+                                Details
                             </a>
                         </div>
                     </div>
-                
                 </section>
-
             </main>
         </div>
     </div>

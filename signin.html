@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tedja-border': '#E5E5E5',
+                        'tedja-green': '#D4F247',
+                        'tedja-blue': '#02051E',
+                        'tedja-red': '#FF5858',
+                        'tedja-secondary': '#8C8F9E',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="font-['Poppins']">
+    <main class="flex min-h-screen w-full">
+        
+        <form action="request-mortgage.html" class="flex items-center justify-center flex-1 w-full px-5 py-10 lg:justify-start lg:px-0 lg:py-0 lg:pl-[calc(((100%-1280px)/2)+75px)]">
+            
+            <div class="flex flex-col h-fit w-full max-w-[500px] shrink-0 rounded-[20px] border border-tedja-border p-[30px] gap-5 bg-white shadow-sm lg:shadow-none">
+                <h1 class="font-bold text-[28px] leading-[42px]">Sign In to My Account</h1>
+                
+                <div class="flex flex-col gap-2">
+                    <p class="font-semibold">Email Address</p>
+                    <label class="relative block">
+                        <img src="sms.svg" class="absolute size-6 transform -translate-y-1/2 top-1/2 left-5"
+                            alt="icon">
+                        <input type="email"
+                            class="appearance-none outline-none w-full rounded-full ring-1 ring-tedja-border py-[14px] pl-[54px] px-5 font-semibold placeholder:font-normal focus:ring-1 focus:ring-tedja-blue transition-all duration-300"
+                            placeholder="Type your email address">
+                    </label>
+                    <span class="text-sm text-tedja-red">Format email salah silahkan coba lagi</span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <p class="font-semibold">Password</p>
+                    <label class="relative block">
+                        <img src="lock.svg" class="absolute size-6 transform -translate-y-1/2 top-1/2 left-5"
+                            alt="icon">
+                        <input type="password"
+                            class="appearance-none outline-none w-full rounded-full ring-1 ring-tedja-border py-[14px] pl-[54px] px-5 font-semibold placeholder:font-normal focus:ring-1 focus:ring-tedja-blue transition-all duration-300"
+                            placeholder="Type your password">
+                    </label>
+                </div>
+                <button type="submit"
+                    class="rounded-full py-[14px] px-5 bg-tedja-green w-full text-center font-semibold hover:shadow-lg transition-all mt-2">Sign
+                    In</button>
+            </div>
+        </form>
+
+        <div class="hidden lg:relative lg:flex w-full max-w-[640px] shrink-0">
+            <div class="fixed top-0 right-0 h-screen w-full max-w-[640px] overflow-hidden">
+                <img src="login-banner.png" class="w-full h-full object-cover" alt="banner">
+                <div class="absolute bottom-0 w-full px-[30px] pb-[30px]">
+                    <div class="flex flex-col rounded-[30px] border border-tedja-border p-4 gap-[14px] bg-white shadow-lg">
+                        <div class="flex">
+                            <img src="Star 1.svg" class="flex shrink-0" alt="star">
+                            <img src="Star 1.svg" class="flex shrink-0" alt="star">
+                            <img src="Star 1.svg" class="flex shrink-0" alt="star">
+                            <img src="Star 1.svg" class="flex shrink-0" alt="star">
+                            <img src="Star 1.svg" class="flex shrink-0" alt="star">
+                        </div>
+                        <p class="font-semibold leading-[28px]">Tedja by Angga membantu kami mendapatkan rumah idaman
+                            dengan interest yang rendah, gaji UMR juga bisa hidup bahagia!</p>
+                        <div class="flex items-center gap-[14px]">
+                            <div class="flex size-[60px] rounded-full overflow-hidden">
+                                <img src="profile.png" class="w-full h-full object-cover" alt="photo profile">
+                            </div>
+                            <div>
+                                <p class="font-semibold">Sarina Dwi</p>
+                                <p class="text-sm text-tedja-secondary">House Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

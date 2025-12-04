@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <title>Testimonials | Tedjia</title>
+
+    <style>
+        /* ========================
+           RESET & BASE VARIABLES
+           ======================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #F8F9FD; color: #030620; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { border: none; background: none; cursor: pointer; font-family: inherit; }
+
+        /* ========================
+           LAYOUT SYSTEM
+           ======================== */
+        .layout-wrapper { display: flex; min-height: 100vh; width: 100%; }
+        .main-wrapper { flex-grow: 1; padding: 30px 50px; background-color: #FBFCFE; }
+
+        /* ========================
+           SIDEBAR STYLING
+           ======================== */
+        .sidebar { width: 280px; background-color: #02051E; color: white; flex-shrink: 0; display: flex; flex-direction: column; }
+        .sidebar-content { padding: 40px 30px; }
+        .logo-container { margin-bottom: 50px; }
+        .nav-list { display: flex; flex-direction: column; gap: 20px; }
+        .nav-link { display: block; color: #8C8F9E; transition: 0.3s; }
+        .nav-content { display: flex; align-items: center; gap: 12px; }
+        .nav-text { font-weight: 500; font-size: 16px; }
+        
+        /* Active State */
+        .nav-item.active .nav-link { color: #D4F247; }
+        .nav-item.active .nav-icon {
+            filter: brightness(0) saturate(100%) invert(86%) sepia(28%) saturate(927%) hue-rotate(24deg) brightness(102%) contrast(92%);
+        }
+
+        /* ========================
+           TOP HEADER (Search & Profile)
+           ======================== */
+        .top-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .search-bar { position: relative; width: 400px; }
+        .search-bar input { width: 100%; padding: 14px 20px; border-radius: 50px; border: 1px solid #E5E5E5; background: #FFFFFF; outline: none; font-size: 14px; }
+        .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
+        .user-actions { display: flex; align-items: center; gap: 30px; }
+        .user-profile { display: flex; align-items: center; gap: 12px; }
+        .user-info { text-align: right; }
+        .greeting { display: block; font-size: 12px; color: #8C8F9E; }
+        .username { display: block; font-weight: 700; font-size: 16px; }
+        .avatar-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+
+        /* ========================
+           PAGE CONTENT
+           ======================== */
+        .page-title h1 { font-size: 28px; font-weight: 700; color: #02051E; }
+        .page-title p { color: #8C8F9E; margin-top: 5px; }
+
+        /* ========================
+           TESTIMONIAL GRID SYSTEM
+           ======================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .testimonial-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid #F1F1F1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+        .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+
+        .comment-box { position: relative; margin-bottom: 20px; }
+        .quote-icon { font-size: 40px; color: #D4F247; font-family: serif; line-height: 0; margin-bottom: 20px; display: block; }
+        .comment-text { font-size: 14px; line-height: 1.6; color: #555; font-style: italic; }
+
+        .user-profile-card { display: flex; align-items: center; gap: 15px; }
+        .profile-card-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #F8F9FD; }
+        .user-info-card h3 { font-size: 16px; font-weight: 700; color: #02051E; margin-bottom: 2px; }
+        .user-role { font-size: 12px; color: #8C8F9E; display: block; }
+
+
+        /* =========================================
+           RESPONSIVE (MOBILE & TABLET)
+           ========================================= */
+        @media screen and (max-width: 992px) {
+            .sidebar { width: 220px; }
+            .main-wrapper { padding: 30px; }
+        }
+
+        @media screen and (max-width: 768px) {
+            /* Layout Reset */
+            .layout-wrapper { display: block; width: 100%; overflow-x: hidden; }
+
+            /* Top Header Mobile */
+            .top-header { flex-direction: column-reverse; gap: 20px; align-items: stretch; margin-bottom: 30px; }
+            .search-bar { width: 100%; }
+            .user-actions { justify-content: space-between; }
+            .user-profile { order: -1; } /* Pindah profil ke kiri */
+
+            /* Main Content */
+            .main-wrapper { width: 100%; padding: 20px 20px 100px 20px; }
+            .page-title h1 { font-size: 24px; }
+
+            /* Grid 1 Kolom */
+            .testimonials-grid { grid-template-columns: 1fr; }
+
+            /* SIDEBAR -> BOTTOM NAVIGATION */
+            .sidebar {
+                position: fixed; bottom: 0; left: 0; right: 0;
+                width: 100%; height: auto; z-index: 1000; padding: 0;
+                background-color: #02051E;
+                border-top-left-radius: 20px; border-top-right-radius: 20px;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            }
+            .sidebar-content { padding: 10px 15px; width: 100%; }
+            .logo-container { display: none; }
+            
+            .nav-list { flex-direction: row; justify-content: space-around; width: 100%; gap: 0; }
+            .nav-item { flex: 1; display: flex; justify-content: center; }
+            .nav-link { display: flex; flex-direction: column; align-items: center; width: 100%; }
+            .nav-content { flex-direction: column; gap: 4px; }
+            .nav-icon { width: 24px; height: 24px; }
+            .nav-text { font-size: 10px; display: block; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-wrapper">
+        
+       
+
+        <div class="main-wrapper">
+            
+            <header class="top-header">
+                
+                <div class="user-actions">
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="greeting">Howdy,</span>
+                            <span class="username">Sarina Dwi</span>
+                        </div>
+                        <img src="profile-6.png" alt="Sarina" class="avatar-img">
+                    </div>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="page-title">
+                    <h1>Customer Stories</h1>
+                    <p>What they say about our mortgage services</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="comment-box">
+                            <span class="quote-icon">“</span>
+                            <p class="comment-text">
+                                "Pelayanan Tedjia sangat luar biasa. Proses KPR saya disetujui hanya dalam waktu 2 minggu. Sangat membantu keluarga muda seperti kami."
+                            </p>
+                        </div>
+                        <div class="user-profile-card">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="User 1" class="profile-card-img">
+                            <div class="user-info-card">
+                                <h3>Sarah Wulandari</h3>
+                                <span class="user-role">Freelancer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="comment-box">
+                            <span class="quote-icon">“</span>
+                            <p class="comment-text">
+                                "The dashboard is very intuitive. I can track my installments easily without having to call the bank. Highly recommended!"
+                            </p>
+                        </div>
+                        <div class="user-profile-card">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="User 2" class="profile-card-img">
+                            <div class="user-info-card">
+                                <h3>Budi Santoso</h3>
+                                <span class="user-role">Entrepreneur</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="comment-box">
+                            <span class="quote-icon">“</span>
+                            <p class="comment-text">
+                                "Awalnya ragu mengambil rumah di Bandung, tapi tim Tedjia memberikan simulasi yang sangat transparan. Tidak ada biaya tersembunyi."
+                            </p>
+                        </div>
+                        <div class="user-profile-card">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="User 3" class="profile-card-img">
+                            <div class="user-info-card">
+                                <h3>Jessica Tan</h3>
+                                <span class="user-role">Product Designer</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="comment-box">
+                            <span class="quote-icon">“</span>
+                            <p class="comment-text">
+                                "Fitur 'Waiting for Bank' update-nya real-time banget. Jadi gak cemas nunggu kabar dari pihak bank. Thanks Tedjia!"
+                            </p>
+                        </div>
+                        <div class="user-profile-card">
+                            <img src="https://i.pravatar.cc/150?img=59" alt="User 4" class="profile-card-img">
+                            <div class="user-info-card">
+                                <h3>Rizky Febian</h3>
+                                <span class="user-role">Musician</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
